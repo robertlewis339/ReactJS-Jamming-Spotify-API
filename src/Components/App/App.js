@@ -22,11 +22,13 @@ class App extends React.Component {
 
   addTrack(track) {
     let tracks = this.state.playListTracks;
+    let oldTrack = this.state.searchResults;
     if (tracks.find(savedTrack => savedTrack.id === track.id)) {
       return;
     }
     tracks.push(track);
     this.setState({ playListTracks: tracks });
+    oldTrack.pop(track);
   }
 
   removeTrack(track) {
